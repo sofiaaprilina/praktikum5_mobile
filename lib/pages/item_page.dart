@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:praktikum5/models/item.dart';
-import 'home_page.dart';
+import 'buttonKembali.dart';
 
 class ItemPage extends StatelessWidget {
   final Item item;
@@ -53,25 +53,7 @@ class ItemPage extends StatelessWidget {
                   margin: EdgeInsets.all(8),
                   child: Text("Stok   : " + item.stock.toString()),
                 )),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      )
-                    );
-                  },
-                  child: Card(
-                    color: Colors.purple,
-                    child: Container(
-                      width: 200,
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.all(8),
-                      child: Text("Kembali", style: TextStyle(color: Colors.white),),
-                    ),
-                  ),
-                ),
+                ButtonKembali(),
               ],
             ),
           ),
@@ -80,3 +62,4 @@ class ItemPage extends StatelessWidget {
     );
   }
 }
+
