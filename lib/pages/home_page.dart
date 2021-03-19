@@ -14,49 +14,68 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.purple,
-         visualDensity: VisualDensity.adaptivePlatformDensity,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
+        backgroundColor: Colors.purple[50],
         appBar: AppBar(
-          title: Text('BelanjaKu'),
+          title: Text('BukuKu'),
         ),
         body: Container(
           margin: EdgeInsets.all(8),
           child: ListView.builder(
-            padding: EdgeInsets.all(8),
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              final item = items[index];
-              return InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ItemPage(item: item),
-                    )
-                  );
-                },
-                child: Card(
-                  child: Container(
-                    margin: EdgeInsets.all(8),
-                    child: Row(
-                      children: [
-                        Expanded(child: Text(item.title)),
-                        Expanded(
-                          child: Text(
-                            item.price.toString(),
-                            textAlign: TextAlign.end,
+              padding: EdgeInsets.all(8),
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                final item = items[index];
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ItemPage(item: item),
+                        ));
+                  },
+                  child: Card(
+                    color: Colors.purple[100],
+                    child: Container(
+                      height: 150,
+                      margin: EdgeInsets.all(8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            child: Image(
+                              image: AssetImage(item.picture),
+                              width: 100,
+                              fit: BoxFit.contain,
+                            ),
                           ),
-                        ),
-                      ],
+                          Column(
+                            children: [
+                              Expanded(child: Text('Judul : ' + item.title)),
+                              Expanded(
+                                child: Text(
+                                  'Harga  : ' + item.price.toString(),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'Stok   : ' + item.stock.toString(),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
-            }
-          ),
+                );
+              }),
         ),
-      )
+      ),
     );
   }
 }
