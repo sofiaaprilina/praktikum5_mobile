@@ -4,8 +4,9 @@ import 'package:praktikum5/pages/item_page.dart';
 
 class HomePage extends StatelessWidget {
   final List<Item> items = [
-    Item(name: 'Sugar', price: 5000),
-    Item(name: 'Salt', price: 2000)
+    Item(title: 'Bumi', price: 50000, stock: 3, picture: 'assets/bumi.jpg'),
+    Item(title: 'Bulan', price: 60000, stock: 4, picture: 'assets/bulan.jpg'),
+    Item(title: 'Matahari', price: 65000, stock: 2, picture: 'assets/matahari.jpg'),
   ];
 
   @override
@@ -40,7 +41,7 @@ class HomePage extends StatelessWidget {
                     margin: EdgeInsets.all(8),
                     child: Row(
                       children: [
-                        Expanded(child: Text(item.name)),
+                        Expanded(child: Text(item.title)),
                         Expanded(
                           child: Text(
                             item.price.toString(),

@@ -19,7 +19,7 @@ class ItemPage extends StatelessWidget {
         body: Container(
           child: Container(
             alignment: Alignment.center,
-            child: Text(item.name + " : "+ item.price.toString()),
+            child: Text(item.title + " : "+ item.price.toString()),
           ),
         ),
       ),
